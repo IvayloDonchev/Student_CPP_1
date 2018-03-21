@@ -47,6 +47,34 @@ Student& Student::operator=(const Student &other)
 	return *this;
 }
 
+Student & Student::operator=(Student &&other)
+{
+	if (this == &other) return *this;
+	if (name) delete[] name;
+	name = std::move(other.name);
+	fn = std::move(other.fn);
+	if (program) delete[] program;
+	program = std::move(other.program);
+	year = std::move(other.year);
+	for (size_t i = 0; i < 5; i++)
+		results[i] = other.results[i];
+	other.name = nullptr;
+	other.fn = 0;
+	other.program = nullptr;
+	other.year = 0;
+	for (size_t i = 0; i < 5; i++)
+	{
+		other.results[i].course = "";
+		other.results[i].grade = 0;
+	}
+	return *this;
+}
+
+Student::Student(Student &&other)
+{
+	*this = std::move(other);
+}
+
 Student::~Student()
 {
 	if(name) delete[] name;		   //if(name != nullptr)

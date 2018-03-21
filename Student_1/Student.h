@@ -15,9 +15,11 @@ private:
 public:
 	Student() :name(nullptr), fn(0), program(nullptr), year(0) {}
 	Student(const char*, int, const char*, int);
-	Student(const Student&);	//копиращ конструктор
-	Student& operator=(const Student&);   //копиращо присвояване
-	~Student();   //деструктор
+	Student(const Student&);	          // копиращ конструктор
+	Student& operator=(const Student&);   // копиращо присвояване
+	Student& operator=(Student&&);	      // преместващо присвояване
+	Student(Student&&);		              // преместващ конструктор
+	~Student();                           // деструктор
 	void Show() const;
 	void Evaluate();	//въвежда оценките от клавиатурата
 	double Average() const;   //средно аритметично от оценките
