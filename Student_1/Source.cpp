@@ -23,23 +23,23 @@ int main()
 
 	s1.Show();  //Грешка!! (ресурсите на s1 са прехвърлени)
 
-	//const int N = 5;
-	//Student group[N];
-	//// въвеждане на данни за студентите
-	//for (int i = 0; i < N; i++)
-	//	group[i].ReadStudent();
-	//// въвеждане на оценки за всеки студент
-	//for (int i = 0; i < N; i++)
-	//	group[i].Evaluate();
+	const int N = 5;
+	Student group[N];
+	// въвеждане на данни за студентите
+	for (int i = 0; i < N; i++)
+		group[i].ReadStudent();
+	// въвеждане на оценки за всеки студент
+	for (int i = 0; i < N; i++)
+		group[i].Evaluate();
 	// сортиране
-	//sort(begin(group), end(group));
-	//// извеждане на сортирания списъл
-	//cout << "----- Sorted List ---------\n";
-	//for (int i = 0; i < N; i++)
-	//{
-	//	group[i].Show();
-	//	cout << "Average result: " << group[i].Average() << endl;
-	//}
+	sort(begin(group), end(group));
+	// извеждане на сортирания списъл
+	cout << "----- Sorted List ---------\n";
+	for (int i = 0; i < N; i++)
+	{
+		group[i].Show();
+		cout << "Average result: " << group[i].Average() << endl;
+	}
 
 	system("pause");
 }
